@@ -10,11 +10,24 @@ import {
     startWith
 } from "rxjs/operators"
 
+const me = {
+    "name": "Vinz"
+}
+
+// sampleData.pipe(
+//     first(),
+//     pluck('name')).subscribe(add.li)
+
+// sampleData.pipe(
+//     last(),
+//     pluck('name')).subscribe(add.li)
 
 sampleData.pipe(
-    first(),
+    startWith(me),
     pluck('name')).subscribe(add.li)
 
+
+//no such data in me
 sampleData.pipe(
-    last(),
-    pluck('name')).subscribe(add.li)
+    startWith(me),
+    pluck("company", 'name')).subscribe(add.li)
