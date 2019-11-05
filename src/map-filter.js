@@ -16,13 +16,18 @@ import {
   take
 } from 'rxjs/operators'
 
-const numbers = ['one', "two", "three", "four"];
+const numbers = ['zero', 'one', "two", "three", "four"];
 
 const counter$ = interval(1000).pipe(take(4));
 
-counter$.pipe(filter((value) => {
-  return value % 2 === 0
-})).subscribe(add.li)
+counter$.pipe(
+  filter((value) => {
+    return value % 2 === 0
+  }),
+  map((value) => {
+    return numbers[value]
+  })
+).subscribe(add.li)
 
 
 /*les deux code dessous ne donne pas le même ordre car ordre different*/
