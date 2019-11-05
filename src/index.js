@@ -6,7 +6,8 @@
 // import "./clocks";
 // import "./map-filter";
 // import "./pluck"
-import "./tap"
+// import "./tap"
+import "./first-last-start"
 
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("title").innerHTML = "Async Programming";
