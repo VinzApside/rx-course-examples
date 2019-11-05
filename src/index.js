@@ -8,7 +8,8 @@
 // import "./pluck";
 // import "./tap";
 // import "./first-last-start";
-import "./skip";
+// import "./skip";
+import './take'
 
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("title").innerHTML = "Async Programming";
