@@ -2,12 +2,16 @@ import { add } from "./helpers";
 
 add.li("line 3");
 
-const p = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve("We are complete !");
-  }, 5000);
-});
+async function runPromise() {
+  add.li("line 6");
+  const p = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("We are complete !");
+    }, 5000);
+  });
+  const message = await p;
+  add.li("line 13 ");
+}
+runPromise();
 
-p.then(message => add.li(message));
-
-add.li("line 12");
+add.li("line 17");
