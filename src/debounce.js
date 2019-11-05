@@ -1,8 +1,16 @@
-import { add } from "./helpers";
+import {
+    add
+} from "./helpers";
 
-import { debounce } from "rxjs/operators";
+import {
+    debounce,
+    debounceTime
+} from "rxjs/operators";
 
-import { interval, fromEvent } from "rxjs";
+import {
+    interval,
+    fromEvent
+} from "rxjs";
 
 const inputBox = document.getElementById("input");
 const renderBox = document.getElementById("display-content");
@@ -13,10 +21,14 @@ const content = fromEvent(inputBox, "keyup");
 
 const submit = fromEvent(submitButton, "click");
 
-content.pipe(debounce(() => interval(1000))).subscribe(() => {
-  renderBox.innerHTML = inputBox.value;
-});
+// content.pipe(debounce(() => interval(1000))).subscribe(() => {
+//   renderBox.innerHTML = inputBox.value;
+// });
 
-content.pipe(debounce(() => submit)).subscribe(() => {
-  renderBox.innerHTML = inputBox.value;
+// content.pipe(debounce(() => submit)).subscribe(() => {
+//   renderBox.innerHTML = inputBox.value;
+// });
+
+content.pipe(debounceTime(2000)).subscribe(() => {
+    renderBox.innerHTML = inputBox.value;
 });
