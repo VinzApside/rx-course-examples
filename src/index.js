@@ -9,7 +9,8 @@
 // import "./tap";
 // import "./first-last-start";
 // import "./skip";
-import './take'
+// import './take'
+import './throttle'
 
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("title").innerHTML = "Async Programming";
