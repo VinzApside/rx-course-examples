@@ -1,7 +1,7 @@
 import { add } from "./helpers";
 import { of, from, fromEvent } from "rxjs";
 import { fromFetch } from "rxjs/fetch";
-import { switchMap } from "rxjs/operator";
+import { switchMap } from "rxjs/operators";
 
 // fromEvent waiting for an event
 const submit = document.getElementById("submit");
@@ -18,6 +18,7 @@ const fruits = from(["apples", "bananas", "oranges"]).subscribe(add.li);
 const users = fromFetch("https://jsonplaceholder.typicode.com/users")
   .pipe(
     switchMap(response => {
+      console.log(response);
       return response.json();
     })
   )
