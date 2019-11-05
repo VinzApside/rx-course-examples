@@ -2,6 +2,6 @@ import { add } from "./helpers";
 import { range, of } from "rxjs";
 import { delay, concatMap } from "rxjs/operators";
 
-const numbers = range(50, 100);
+const numbers = range(50, 60);
 
-numbers.subscribe(add.li);
+numbers.pipe(concatMap(value => of(value).pipe(delay(1000)))).subscribe(add.li);
