@@ -1,17 +1,22 @@
 import { add } from "./helpers";
+import { Observable } from "rxjs";
 
-add.li("line 3");
+const o = new Observable(observer => {
+  setTimeout(() => {
+    observer.next("We are complete observable !");
+  }, 1000);
+});
 
-async function runPromise() {
-  add.li("line 6");
-  const p = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("We are complete !");
-    }, 5000);
-  });
-  const message = await p;
-  add.li("line 13 ");
-}
-runPromise();
+const p = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("We are complete promise !");
+  }, 5000);
+});
 
-add.li("line 17");
+//Promise
+p.then(message => {
+  add.li(message);
+});
+
+//Observable
+o.subscribe(message => add.li(message));
