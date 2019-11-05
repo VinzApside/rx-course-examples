@@ -10,7 +10,8 @@
 // import "./first-last-start";
 // import "./skip";
 // import './take'
-import './throttle'
+// import './throttle';
+import './debounce';
 
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("title").innerHTML = "Async Programming";
