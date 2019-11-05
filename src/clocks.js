@@ -9,8 +9,25 @@ import { map } from "rxjs/operators";
  */
 const clock = new Clock("chart");
 
-const seconds = buildArray(60);
-secondHand.forEach(v => add.li(v));
+// const seconds = buildArray(60);
+// const secondMarks = from(seconds);
+
+const secondMarks = range(1, 60);
+secondMarks.subscribe(tickMark => {
+  add.line(tickMark), "seconds";
+});
+
+secondMarks.subscribe(tickMark => {
+  add.line(tickMark, "seconds");
+});
+
+// const hours = buildArray(12);
+// const hourMarks = of(...hours);
+
+const hourMarks = range(1, 12);
+hourMarks.subscribe(tickMark => {
+  add.line(tickMark), "hours";
+});
 
 const timeTick$ = interval(1000).pipe(
   map(() => {
