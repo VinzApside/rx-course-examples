@@ -16,7 +16,12 @@ import {
 
 // interval(500).pipe(take(10)).subscribe(add.li)
 
+// interval(500).pipe(
+//     takeWhile(
+//         (numbers) => numbers < 5)
+// ).subscribe(add.li);
+
 interval(500).pipe(
-    takeWhile(
-        (numbers) => numbers < 5)
+    take(10),
+    takeLast(5)
 ).subscribe(add.li);
