@@ -13,4 +13,6 @@ import {
     skipWhile
 } from 'rxjs/operators';
 
-from(["apple", "grapes", "oranges", "pears"]).pipe(skip(2)).subscribe(add.li);
+// from(["apple", "grapes", "oranges", "pears"]).pipe(skip(2)).subscribe(add.li);
+
+from(["apple", "grapes", "oranges", "pears"]).pipe(skipLast(2)).subscribe(add.li);
