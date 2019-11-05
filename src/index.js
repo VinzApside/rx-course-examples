@@ -4,7 +4,8 @@
 // import "./interval";
 // import "./range";
 // import "./clocks";
-import "./map-filter";
+// import "./map-filter";
+import "./pluck"
 
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("title").innerHTML = "Async Programming";
