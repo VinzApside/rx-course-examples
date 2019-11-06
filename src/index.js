@@ -11,8 +11,9 @@
 // import "./skip";
 // import './take'
 // import './throttle';
-import './debounce';
+// import './debounce';
+import "./scan-reduce";
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("title").innerHTML = "Async Programming";
 });
