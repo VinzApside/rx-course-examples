@@ -19,7 +19,8 @@
 // import "./concat-all";
 // import "./merge-all";
 // import "./switch-map";
-import "./exhaust-map";
+// import "./exhaust-map";
+import "./merge-map";
 
 document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("title").innerHTML = "Async Programming";
