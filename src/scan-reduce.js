@@ -20,18 +20,32 @@ import { interval, from } from "rxjs";
 //   )
 //   .subscribe(add.li);
 
-//create finobacci sequence show final sequence only
-const FS = interval(1000)
-  .pipe(
-    take(20),
-    reduce(
-      (acc, value) => {
-        const n = value + 1;
-        const last = acc[n];
-        const beforeLast = acc[n - 1];
-        return [...acc, last + beforeLast];
-      },
-      [0, 1]
-    )
+// create finobacci sequence show final sequence only
+// const FS = interval(1000)
+//   .pipe(
+//     take(20),
+//     reduce(
+//       (acc, value) => {
+//         const n = value + 1;
+//         const last = acc[n];
+//         const beforeLast = acc[n - 1];
+//         return [...acc, last + beforeLast];
+//       },
+//       [0, 1]
+//     )
+//   )
+//   .subscribe(add.li);
+
+const FSbis = interval(1000).pipe(
+  take(20),
+  reduce(
+    (acc, value) => {
+      const n = value + 1;
+      const last = acc[n];
+      const beforeLast = acc[n - 1];
+      return [...acc, last + beforeLast];
+    },
+    [0, 1]
   )
-  .subscribe(add.li);
+);
+FSbis.pipe(concatMap(sequence => from(sequence))).subscribe(add.li);
