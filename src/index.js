@@ -24,7 +24,8 @@
 // import "./concat-map";
 // import "./http";
 // import "./custom-operator";
-import "./ajax";
+// import "./ajax";
+import "./errors";
 
 document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("title").innerHTML = "Async Programming";
