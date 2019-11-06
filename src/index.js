@@ -23,7 +23,8 @@
 // import "./merge-map";
 // import "./concat-map";
 // import "./http";
-import "./custom-operator";
+// import "./custom-operator";
+import "./ajax";
 
 document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("title").innerHTML = "Async Programming";
