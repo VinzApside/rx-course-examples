@@ -13,7 +13,8 @@
 // import './throttle';
 // import './debounce';
 // import "./scan-reduce";
-import "./merge";
+// import "./merge";
+import "./concat";
 
 document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("title").innerHTML = "Async Programming";
