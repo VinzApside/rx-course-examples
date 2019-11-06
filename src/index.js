@@ -27,7 +27,8 @@
 // import "./ajax";
 // import "./errors";
 // import "./subjects-intro";
-import "./audio_project";
+// import "./audio_project";
+import "./behavior_subject";
 
 document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("title").innerHTML = "Async Programming";
