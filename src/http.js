@@ -17,6 +17,7 @@ import { switchMap } from "rxjs/operators";
 //   });
 // });
 
+//better
 const userss = fromFetch("https://jsonplaceholder.typicode.com/users");
 
 userss.pipe(switchMap(response => response.json())).subscribe(users => {
