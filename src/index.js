@@ -16,7 +16,8 @@
 // import "./merge";
 // import "./concat";
 // import "./combine-lastest";
-import "./concat-all";
+// import "./concat-all";
+import "./merge-all";
 
 document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("title").innerHTML = "Async Programming";
