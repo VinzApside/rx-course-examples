@@ -10,19 +10,35 @@ function checkStatus() {
   });
 }
 
-// const users = fromFetch("https://httpbin.org/status/200")
-const users = fromFetch("https://httpbin.org/status/400")
+// // const users = fromFetch("https://httpbin.org/status/200")
+// const users = fromFetch("https://httpbin.org/status/400")
+//   .pipe(
+//     checkStatus(),
+//     catchError(err => {
+//       return EMPTY;
+//     })
+//   )
+//   .subscribe(
+//     response => {
+//       console.log(response);
+//     },
+//     error => {
+//       console.log(error);
+//     }
+//   );
+
+const userss = fromFetch("https://httpbin.org/status/400")
   .pipe(
     checkStatus(),
     catchError(err => {
-      return EMPTY;
+      return throwError("The status must have been 400");
     })
   )
   .subscribe(
     response => {
-      console.log(response);
+      console.log("next", response);
     },
     error => {
-      console.log(error);
+      console.log("error", error);
     }
   );
