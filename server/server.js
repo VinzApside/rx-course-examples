@@ -9,9 +9,9 @@ app.use(cors());
 // Add your keys
 const keys = {
   //https://developers.google.com/places/web-service/intro
-  googleMaps : "YOUR KEY GOES HERE",
+  googleMaps: "YOUR KEY GOES HERE",
   //https://darksky.net/dev
-  darkSky : "YOUR KEY GOES HERE"
+  darkSky: "596d4e2d3c3df4c1ce95c141500a28ca"
 };
 
 
@@ -24,10 +24,9 @@ const token = util.placesAutoCompleteSessionToken();
 
 
 app.get("/autocomplete/:id", (req, res) => {
-  
 
-  googleMapsClient.placesAutoComplete(
-    {
+
+  googleMapsClient.placesAutoComplete({
       input: req.params.id,
       language: "en",
       sessiontoken: token
@@ -39,13 +38,12 @@ app.get("/autocomplete/:id", (req, res) => {
 });
 
 app.get("/place/:id", (req, res) => {
-  googleMapsClient.place(
-    {
-        placeid: req.params.id,
-        language: 'en'
+  googleMapsClient.place({
+      placeid: req.params.id,
+      language: 'en'
     },
     (_, result) => {
-        
+
       res.send(result.json.result);
     }
   );
@@ -54,7 +52,7 @@ app.get("/place/:id", (req, res) => {
 
 
 app.get("/weather/:lat/:long", (req, res) => {
-    fetch(`https://api.darksky.net/forecast/${keys.darkSky}/${req.params.lat},${req.params.long}`)
+  fetch(`https://api.darksky.net/forecast/${keys.darkSky}/${req.params.lat},${req.params.long}`)
     .then(res => res.json())
     .then(json => res.json(json));
 
