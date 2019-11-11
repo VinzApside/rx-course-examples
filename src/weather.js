@@ -1,5 +1,5 @@
 import { fromEvent, BehaviorSubject, Subject, from } from "rxjs";
-import { debounceTime, switchMap, tap, skip } from "rxjs/operators";
+import { debounceTime, switchMap, tap, skip, pluck } from "rxjs/operators";
 import { add } from "./helpers";
 import { ajax } from "rxjs/ajax";
 
@@ -54,5 +54,22 @@ const placeData = resultsEvent
     })
   )
   .subscribe(place => {
+    console.log(place);
     placeSubject.next(place);
+  });
+
+const weathData = placeSubject
+  .pipe(
+    tap(place => {
+      console.log(place);
+    }),
+    pluck("geometry", "location"),
+    switchMap(coords => {
+      return ajax
+        .getJSON(`http://localhost:3000/weather/${coords.lat}/${coords.lng}`)
+        .pipe(pluck("currently"));
+    })
+  )
+  .subscribe(stream => {
+    console.log(stream);
   });
