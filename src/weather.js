@@ -17,7 +17,7 @@ const inputSubject = new BehaviorSubject("");
 const placeSubject = new Subject();
 const weatherSubject = new Subject();
 
-inputSubject
+const inputData = inputSubject
   .pipe(
     skip(1),
     tap(() => {
@@ -45,3 +45,14 @@ inputSubject
 searchEvent.subscribe(event => {
   inputSubject.next(searchBox.value);
 });
+
+const placeData = resultsEvent
+  .pipe(
+    switchMap(ev => {
+      const id = ev.target.getAttribute("data");
+      return ajax.getJSON(`http://localhost:3000/place/${id}`);
+    })
+  )
+  .subscribe(place => {
+    placeSubject.next(place);
+  });
